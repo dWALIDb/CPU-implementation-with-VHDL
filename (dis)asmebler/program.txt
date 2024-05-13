@@ -1,0 +1,19 @@
+ldi 11
+.loop2:
+rli <02>,17
+.loop1: 
+rli <01>,FF
+.loop0:
+rli <00>,FF
+.delay:
+nop 
+decr <00> 
+jpnz (delay) 
+nop 
+decr <01> 
+jpnz (loop0) 
+nop 
+decr <02> 
+jpnz (loop1) 
+inc 
+jp (loop2) 

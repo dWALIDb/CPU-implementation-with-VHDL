@@ -1,0 +1,37 @@
+ldi 11
+ei (get_number)
+cp 13
+jpe (gcd)
+jp (02)
+.gcd:
+ldr <00>
+cpr <01>
+jpe (done)
+jpl (lower)
+jpg (greater)
+jp (gcd)
+.greater:
+sbr <01>
+rla <00>
+jp (gcd)
+.lower:
+ldr <01>
+sbr <00>
+rla <01>
+jp (gcd)
+.done:
+outa <0F>
+halt
+.get_number:
+pushflag
+pctoix
+get <00>
+inr <0>,<0>
+incix
+indexedstr
+incix
+incix
+indexedstr
+inc
+popflag
+ret
