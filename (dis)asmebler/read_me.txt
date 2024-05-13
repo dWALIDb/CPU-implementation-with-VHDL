@@ -3,10 +3,9 @@ in binary.
 -Every instructions is written in a single line
 -It must be wtitten in the start of the line
 -labels/origins are written on a single line
--single byte instruction must have a space after them
 -immediate adressing mode operands MUST be written in hex
 -jump instruction MUST be written in decimal 
--there are 8 registers referenced from 0 to 7 and 16 ioports (0 to 15)
+-there are 8 registers referenced from 0 to 7 and 16 ioports (0 to f)
 
 
 ***each line is written as follows:
@@ -15,7 +14,7 @@ in binary.
 
 ***one byte instruction example:
 
-inc (dont forget space at the end :) )
+inc
 
 ***two byte instruction exapmles:
 
@@ -65,6 +64,7 @@ ldi FF
 ldsp FF
 .never_ending_loop:
 ei (interrupt)
+pctoix
 ldr <00>
 nop 
 jp (never_ending_loop)
@@ -72,7 +72,6 @@ jp (never_ending_loop)
 di 
 get <00>
 ina <00>
-ldix 1E
 incix 
 indexedstr 
 ret 
