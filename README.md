@@ -1,4 +1,4 @@
-hello,
+Hello,
 this is my final year project, it is an 8 bit CPU with VHDL using structural modeling,copy all the files if you need to.
 I liked the architecture of CPUs in a lecture last semester so i decided to implement on myself!
 The top level design is "W8.qpf" you may change the generic in "W8.vhd" to your mif file directory, o initialize the ram with your instructions.
