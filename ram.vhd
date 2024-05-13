@@ -16,10 +16,13 @@ port
 );
 end ram;
 architecture arch of ram is 
-signal data :t_ram:=init_ram(file_path);
---attribute ram_init_file :string;
---attribute ram_init_file of data: signal is file_path;
---use the function for imulation use the attribute for implementation
+signal data :t_ram;--:=init_ram(file_path);
+attribute ram_init_file :string;
+attribute ram_init_file of data: signal is file_path;
+--"attribute" is used to initialize the ram for FPGA implementation, sadly text files are not synthesizable, only MIF and HEX files are supported by the synthesizer.
+--The function "init_ram" is used to initialze the ram when working with Modelsim-Altera, since the simulator doesn't support attribute.
+--file path is passed through generic map in larger modules.
+--each line in the file must contain an 8-bit value corresponding to operand, data , or instruction.
 begin
 write_data:process(input,wd,clk,cs,data)
 	begin
