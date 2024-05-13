@@ -7,3 +7,5 @@ The main file in that directory carries the assemble , the generateMIF and the d
 The assemble method takes two areguments, one is the input file to read the assembly from, the other argument is the file to output the machine code to.
 The generateMIF methode takes a txt file as an input, it should contain all the data in hexadecimal and each byte in a single line.
 there is a "read me" file that explains the instructions and how to use the assembler.
+Refer to my report for further details on the project, and the design in general.
+thanks for your attention and good luck with your work.
