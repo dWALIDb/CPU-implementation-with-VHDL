@@ -1,0 +1,48 @@
+ldsp FF 
+ldi 11
+.in_loop:
+ei (get_number)
+cp 13
+jpe (gcd)
+jp (in_loop)
+.gcd:
+ldr <00>
+cpr <01>
+jpe (done)
+jpl (lower)
+jpg (greater)
+jp (gcd)
+.greater:
+sbr <01>
+rla <00>
+jp (gcd)
+.lower:
+ldr <01>
+sbr <00>
+rla <01>
+jp (gcd)
+.done:
+outa <0F>
+call (RESET_PROGRAM)
+jp (00)
+.get_number:                    ### main program ended ##########
+pushflag
+pctoix
+get <00>
+inr <0>,<0>
+incix
+indexedstr
+incix
+incix
+indexedstr
+inc
+popflag
+ret
+.RESET_PROGRAM:      ### ix is not changed so we set it back to initail value then we set get and inr operands to point to reference "0"
+offsetix FE
+ldi 00
+indexedstr
+incix
+incix
+indexedstr
+ret
